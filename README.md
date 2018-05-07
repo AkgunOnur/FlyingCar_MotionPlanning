@@ -5,6 +5,13 @@
 
 This project is a continuation of the Backyard Flyer project where a simple square shaped flight path is executed. In this project, motion planning is executed by both grid and graph approaches.
 
+## Motion Planning
+### Grid Planning
+In this approach, the map is split into grids. Goal location is defined in terms of longitude and latitude. It is converted x-y position information by using `global_to_local` function. A trajectory is constructed between start and goal positions by `A*` algorithm. This algorithm needs an heuristic function. For this purpose, we use Euclidean function as an heuristic. To decrease the waypoints and smooth the trajectory, we prune the path by checking collinearity of the waypoints.  
+
+### Graph Planning
+In this approach, the map is converted into skeleton by `medial_axis` function. Goal location is defined in terms of longitude and latitude. Unlike grid approach, in this case there are nodes instead of grids. Closest nodes are found for both start and goal locations. A trajectory is constructed between start and goal positions by `A*` algorithm.  To decrease the waypoints and smooth the trajectory, we prune the path by checking collinearity of the waypoints.
+
 ## To complete this project the local machine, follow these instructions:
 ### Step 1: Download the Simulator
 This is a new simulator environment!  
